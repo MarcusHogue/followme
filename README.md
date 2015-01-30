@@ -1,2 +1,2 @@
 # followme
-Sample Rail4 App
+Sample Rails4 App
