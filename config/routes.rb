@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+    resources :follows, :users
+
+    root to: "users#index"
+
+    get "/createuser", to: "users#create"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
