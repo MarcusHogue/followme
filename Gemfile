@@ -47,10 +47,6 @@ end
 
 group :production do
 	gem 'pg'
-
-# Enabled only for Heroku troubleshooting, comment these out!!!
-  	gem 'byebug'
-    gem 'web-console', '~> 2.0'
+	# For Heroku exception catching
 	gem "bugsnag"
-
 end
