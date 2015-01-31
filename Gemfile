@@ -51,5 +51,6 @@ group :production do
 # Enabled only for Heroku troubleshooting, comment these out!!!
   	gem 'byebug'
     gem 'web-console', '~> 2.0'
+	gem "bugsnag"
 
 end
