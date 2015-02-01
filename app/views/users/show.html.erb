@@ -12,10 +12,12 @@
 	<% @users.each do |otheruser| %>
 
 	<% if not @user.follows.find_by(following_id: otheruser) %>
+	<% if @user != otheruser %>
 	<li>
 
 		<%= otheruser.name %> (<%= link_to "follow", follows_path(:follow_id => otheruser, :user_id => @user), :method => :post %>)
 	</li>
+	<% end %>
 	<% end %>
 	<% end %>
 
