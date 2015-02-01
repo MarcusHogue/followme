@@ -9,16 +9,33 @@
 
 <h2><%= @user.name %> is NOT Following:</h2>
 
+	<% @users.each do |otheruser| %>
+
+	<% if not @user.follows.find_by(following_id: otheruser) %>
+	<li>
+
+		<%= otheruser.name %> (<%= link_to "follow", follows_path(:follow_id => otheruser, :user_id => @user), :method => :post %>)
+	</li>
+	<% end %>
+	<% end %>
+
 <h2>People Following <%= @user.name %>:</h2>
 	<% for follower in @user.inverse_following %>
 	<li>
-		<%= follower.name %> (<%= link_to "follow", follows_path(:follow_id => follower, :user_id => @user), :method => :post %>)
+		<%= follower.name %>
+
+	<% if not @user.follows.find_by(following_id: follower) %>
+
+		 (<%= link_to "follow", follows_path(:follow_id => follower, :user_id => @user), :method => :post %>)
+
+	<% end %>
+
 	</li>
 	<% end %>
 
 
 <hr>
-<h3>All Users</h3>
+<!-- <h3>All Users</h3>
 <ul>
 	<% @users.each do |otheruser| %>
 	<li>
@@ -26,5 +43,5 @@
 	</li>
 	<% end %>
 </ul>
-
+ -->
 <p><%= link_to("Home", root_url) %></p>

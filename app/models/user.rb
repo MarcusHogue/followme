@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
 	validates :name, presence: true, uniqueness: true
-	validates :follows, uniqueness: true
 
 	has_many :follows
 	has_many :followings, :through => :follows
