@@ -1,3 +1,25 @@
-<h1><%= @user.name %></h1>
+<h1><%= @user.name %>'s Profile</h1>
 
-This is <%= @user.name %>'s page.
+<h2><%= @user.name %> is Following:</h2>
+	<% for follow in @user.follows %>
+	<li>
+		<%= follow.following.name %>
+	</li>
+	<% end %>
+
+<h2><%= @user.name %> is NOT Following:</h2>
+
+<h2>People Following <%= @user.name %>:</h2>
+
+<hr>
+<h3>All Users</h3>
+<ul>
+	<% @users.each do |otheruser| %>
+	<li>
+		<!-- Follow <%= link_to otheruser.name, follows_path(:follow_id => otheruser), :method => :post %> -->
+		Follow <%= link_to otheruser.name, follows_path(:follow_id => otheruser, :user_id => @user), :method => :post %>
+	</li>
+	<% end %>
+</ul>
+
+<p><%= link_to("Home", root_url) %></p>

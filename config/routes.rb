@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    resources :follows, :users
+    resources :users, :follows
 
     root to: "users#index"
 

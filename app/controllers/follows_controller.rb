@@ -1,9 +1,10 @@
 class FollowsController < ApplicationController
 	def create
-		@follow = current_user.follows.build(:follow_id => params[:follow_id])
+		@follower = User.find(params[:user_id])
+		@follow = @follower.follows.build(:following_id => params[:follow_id])
 		if @follow.save
 			flash[:notice] = "Followed user."
-			redirect_to root_url
+			redirect_to @follower
 		else
 			flash[:error] = "Could not follow user."
 			redirect_to root_url			
