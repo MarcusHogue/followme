@@ -11,6 +11,14 @@ class FollowsController < ApplicationController
 		end
 	end
 	def destroy
+
+		@follower = User.find(params[:user_id])
+
+		@follow = @follower.follows.find(params[:follow_id])
+		@follow.destroy
+
+		flash[:notice] = "Stopped following user."
+		redirect_to @follower
 		
 	end
 end

@@ -3,16 +3,16 @@
 <h2><%= @user.name %> is Following:</h2>
 	<% for follow in @user.follows %>
 	<li>
-		<%= follow.following.name %>
+		<%= follow.following.name %> (<%= link_to "remove", follow_path(:follow_id => follow, :user_id => @user), :method =>:delete %>)
 	</li>
 	<% end %>
 
 <h2><%= @user.name %> is NOT Following:</h2>
 
 <h2>People Following <%= @user.name %>:</h2>
-	<% for user in @user.inverse_following %>
+	<% for follower in @user.inverse_following %>
 	<li>
-		<%= user.name %>
+		<%= follower.name %> (<%= link_to "follow", follows_path(:follow_id => follower, :user_id => @user), :method => :post %>)
 	</li>
 	<% end %>
 
@@ -22,7 +22,6 @@
 <ul>
 	<% @users.each do |otheruser| %>
 	<li>
-		<!-- Follow <%= link_to otheruser.name, follows_path(:follow_id => otheruser), :method => :post %> -->
 		Follow <%= link_to otheruser.name, follows_path(:follow_id => otheruser, :user_id => @user), :method => :post %>
 	</li>
 	<% end %>
