@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
@@ -29,10 +30,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+<<<<<<< HEAD
 # Need puma for AWS
 gem "puma"
 gem 'pg'
 
+=======
+>>>>>>> parent of f8bb9dc... Updates for AWS EB
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -49,7 +53,7 @@ group :development, :test do
 end
 
 group :production do
-	gem 'sqlite3'
+	gem 'pg'
 	# For Heroku exception catching
-	# gem "bugsnag"
+	gem "bugsnag"
 end

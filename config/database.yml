@@ -22,10 +22,6 @@ test:
 
 production:
   adapter: postgresql
-  database: <%= ENV['RDS_DB_NAME'] %>
+  database: followme_db
   pool: 5
   timeout: 5000
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %>

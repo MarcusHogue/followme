@@ -15,6 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
+<<<<<<< HEAD
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
@@ -22,3 +23,5 @@
 !.elasticbeanstalk/*.global.yml
 
 .DS_Store
+=======
+>>>>>>> parent of f8bb9dc... Updates for AWS EB
